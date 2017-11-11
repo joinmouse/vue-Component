@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://vuejs.org/js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="demo">
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+    <simple-counter></simple-counter>
+  </div>
+
+  <script>
+    Vue.component('simple-counter', {
+      template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+      //将数据放在return中，这样可为每个组件返回全新的数据对象；
+      //这样每一个counter有它自己的内部状态
+      data: function () {
+        return {
+          counter: 0
+        }
+      }
+    })
+    new Vue({
+      el: '#demo'
+    })
+  </script>
+</body>
+</html>
